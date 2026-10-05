@@ -1,0 +1,4 @@
+route: {receiver: default, group_by: [alertname], repeat_interval: 4h}
+receivers:
+  - name: default
+    webhook_configs: [{url: "http://host.docker.internal:5001/alert"}]   # replace with Slack/email receiver

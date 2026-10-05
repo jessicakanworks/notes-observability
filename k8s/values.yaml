@@ -1,0 +1,12 @@
+grafana:
+  adminPassword: change-me
+  ingress: {enabled: true, ingressClassName: nginx, hosts: [grafana.notes.local]}
+prometheus:
+  prometheusSpec:
+    retention: 15d
+    serviceMonitorSelectorNilUsesHelmValues: false
+    ruleSelectorNilUsesHelmValues: false
+alertmanager:
+  config:
+    route: {receiver: "null", group_by: [alertname]}
+    receivers: [{name: "null"}]
